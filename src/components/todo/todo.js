@@ -11,8 +11,20 @@ const Todo = () => {
             alert('Add items');
         }
         else {
-            setItems([...items, inputdata]);
+            const newInputData = {
+                id: new Date().getTime().toString(),
+                name: inputdata
+            }
+            setItems([...items, newInputData]);
+            setInputData("");
         }
+    }
+
+    const deleteItem = (index) => {
+        const updatedItems = items.filter((curElem) => {
+            return curElem.id !== index;
+        });
+        setItems(updatedItems);
     }
 
     return (
@@ -29,13 +41,13 @@ const Todo = () => {
                     {/* Show Items */}
 
                     <div className="showItems">
-                        {items.map((curElem, index) => {
+                        {items.map((curElem) => {
                             return (
-                                <div className="eachItem">
-                                    <h3>{curElem}</h3>
+                                <div className="eachItem" key={curElem.id}>
+                                    <h3>{curElem.name}</h3>
                                     <div className="todo-btm">
                                         <i className="far fa-edit add-btn"></i>
-                                        <i className="far fa-trash-alt add-btn"></i>
+                                        <i className="far fa-trash-alt add-btn" onClick={() => deleteItem(curElem.id)}></i>
                                     </div>
                                 </div>
                             )
