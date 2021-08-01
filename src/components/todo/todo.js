@@ -60,10 +60,7 @@ const Todo = () => {
                             return (
                                 <div className="eachItem" key={curElem.id}>
                                     <h3>{curElem.name}</h3>
-                                    <div className="todo-btm">
-                                        <i className="far fa-edit add-btn"></i>
-                                        <i className="far fa-trash-alt add-btn" onClick={() => deleteItem(curElem.id)}></i>
-                                    </div>
+                                    <i className="far fa-trash-alt delete-btn" onClick={() => deleteItem(curElem.id)}></i>
                                 </div>
                             )
                         })}
@@ -71,15 +68,6 @@ const Todo = () => {
                     </div>
 
                     {/* Remove Items */}
-
-
-
-                    <div className="showItems">
-                        <button className="btn effect04 " data-sm-link-text="Remove All">
-                            <span>Checklist</span>
-                        </button>
-                    </div>
-
                 </div>
             </div>
         </>
