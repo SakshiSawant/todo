@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(9, 9, 175);
+    background-color: #93C5FD;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .main-div{
